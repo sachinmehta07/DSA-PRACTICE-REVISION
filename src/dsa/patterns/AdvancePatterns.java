@@ -3,7 +3,8 @@ package dsa.patterns;
 public class AdvancePatterns {
     public static void main(String[] args) {
         //diamondPattern(4);
-        fullHallowPyramidOp(4);
+        // fullHallowPyramidOp(4);
+        butterFlyPattern(4);
         //  invertedHollowDiamond(5);
     }
 
@@ -216,4 +217,60 @@ public class AdvancePatterns {
             System.out.println("");
         }
     }
+
+
+    public static void ex(int n) {
+        for (int row = 1; row <= n; row++) {
+            for (int col = 0; col < row - 1; col++) {
+                System.out.print("  ");
+            }
+            int spaceNo = (2 * n) - (2 * row) - 1;
+            for (int col = 0; col < spaceNo; col++) {
+                if (col == 0 || col == spaceNo - 1) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("s ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void butterFlyPattern(int n) {
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                System.out.print("* ");
+            }
+            int spaces = (2 * n) - (2 * i) - 1;
+            for (int k = 0; k < spaces; k++) {
+                System.out.print("  ");
+            }
+            for (int j = 0; j < i + 1; j++) {
+                System.out.print("* ");
+            }
+            System.out.println("");
+        }
+
+        for (int i = 1; i < n; i++) {
+
+            for (int j = 0; j < n - i; j++) {
+                System.out.print("* ");
+            }
+
+            for (int k = 0; k < 2 * i + 1; k++) {
+                System.out.print("  ");
+            }
+
+            for (int j = 0; j < n - i; j++) {
+                System.out.print("* ");
+            }
+
+            System.out.println("");
+        }
+
+    }
+
+
+
 }
