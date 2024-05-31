@@ -3,7 +3,7 @@ package dsa.patterns;
 public class PracticePatterns {
 
     public static void main(String[] args) {
-        fancyPatternChatGpt(5);
+        fancyPatternChatGpt(4);
     }
 
 
@@ -21,17 +21,17 @@ public class PracticePatterns {
 
     public static void fancyPatternChatGpt(int n) {
         // Growing Part
-//        System.out.println("*");
+        System.out.println("*");
         for (int i = 0; i < n; i++) {
 
-//            System.out.print("*");
+            System.out.print("*");
             for (int j = 0; j < i + 1; j++) {
-//                System.out.print(j + 1);
+                System.out.print(j + 1);
             }
             for (int k = i - 1; k >= 0; k--) {
-//                System.out.print(k + 1);
+                System.out.print(k + 1);
             }
-//            System.out.print("*");
+            System.out.print("*");
 
             System.out.println("");
         }

@@ -10,7 +10,7 @@ public class Test {
         //   System.out.println(countSetBit(8));
 //        genTheNumFromDigit(3);
 
-        setKthBit(12,2);
+        setKthBit(12, 2);
 
 
     }
@@ -48,9 +48,11 @@ public class Test {
     }
 
     public static void setKthBit(int n, int k) {
-        int mask = 1 << k;
-        int ans = n | mask;
-        System.out.println(ans);
+        if (k < n) {
+            int mask = 1 << k;
+            int ans = n | mask;
+            System.out.println(ans);
+        }
     }
 
     public static int reverseInteger(int n) {

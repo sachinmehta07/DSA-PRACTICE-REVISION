@@ -5,10 +5,12 @@ import java.util.Arrays;
 
 public class SampleArrays {
     public static void main(String[] args) {
-        int[] a = {0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1};
-        int[] pairArray = {10, 20, 30, 40};
+        int[] a = {0, 1, 1, 1, 0, 0, 1, 1};
+        int[] pairArray = {10, 20, 40, 50, 30, 40, 10, 30, 20};
 //        System.out.println(Arrays.toString(sortArray(a)));
-        pairArray6(pairArray);
+        if (!FindSingle(pairArray)) {
+            System.out.println("NO UNIQUE ELEMENT FOUND :(");
+        }
     }
 
 
@@ -33,7 +35,7 @@ public class SampleArrays {
     public static void pairArray3(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.println("STEP" + i);
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 System.out.println(arr[i] + "," + arr[j]);
             }
 
@@ -70,7 +72,10 @@ public class SampleArrays {
 
 
     public static int[] sortArray(int[] arr) {
+
         //counter approach
+
+
 //        int zeroCount = 0;
 //        int oneCount = 0;
 //
@@ -92,30 +97,27 @@ public class SampleArrays {
 
         //two pointer approach
 
-        int left = 0;
-        int right = arr.length - 1;
-        while (left < right) {
-            if (arr[left] == 1 && arr[right] == 0) {
-                arr[left] = 0;
-                arr[right] = 1;
-                left++;
-                right--;
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            if (arr[start] == 1 && arr[end] == 0) {
+                arr[start] = 0;
+                arr[end] = 1;
+                start++;
+                end--;
             } else {
-                if (arr[left] == 0) {
-                    left++;
+                if (arr[start] == 0) {
+                    start++;
                 }
-                if (arr[right] == 1) {
-                    right--;
+                if (arr[end] == 1) {
+                    end--;
                 }
             }
-
         }
         return arr;
     }
 
     public static boolean stringFindSingle(String[] arr) {
-
-
         // String uniqueVal = "null";
         for (int i = 0; i < arr.length; i++) {
             boolean uniqueVal = true;
@@ -176,8 +178,6 @@ public class SampleArrays {
         int i = 0;
         int j = a.length - 1;
         while (i <= j) {
-
-
             if (i == j) {
                 System.out.print(a[i] + " ");
             } else {
@@ -214,12 +214,30 @@ public class SampleArrays {
             i++;
             j--;
         }
-        //optimal approch
+        //optimal approach
 
 //        int[] reversedArrOp = new int[mainArr.length];
 ////        for (int i = 0, j = mainArr.length - 1; j >= 0; i++, j--) {
 ////            reversedArrOp[i] = mainArr[j];
 ////        }
         return reversedArr;
+    }
+
+    public static boolean FindSingle(int[] arr) {
+        // String uniqueVal = "null";
+        for (int i = 0; i < arr.length; i++) {
+            boolean uniqueVal = true;
+            for (int j = 0; j < arr.length; j++) {
+                if (i != j && arr[i] == arr[j]) {
+                    uniqueVal = false;
+                    break;
+                }
+            }
+            if (uniqueVal) {
+                System.out.println("Unique element :" + arr[i]);
+                return true;
+            }
+        }
+        return false;
     }
 }
