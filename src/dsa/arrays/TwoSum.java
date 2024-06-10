@@ -1,5 +1,7 @@
 package dsa.arrays;
 
+import java.util.Arrays;
+
 public class TwoSum {
     public static void main(String[] args) {
         int[] sumArray = {10, 5, 20, 15, 30};
@@ -34,5 +36,23 @@ public class TwoSum {
 
         }
         return isPairFound;
+    }
+
+    //Two pointer approach
+    public int[] twoPointer(int n, int[] arr) {
+        Arrays.sort(arr);
+        int low = 0;
+        int high = arr.length - 1;
+        while (low < high) {
+            int curSum = arr[low] + arr[high];
+            if (curSum == n) {
+                return new int[]{low, high};
+            } else  if (curSum > n) {
+                high--;
+            } else if (curSum < n) {
+                low++;
+            }
+        }
+        return null;
     }
 }
