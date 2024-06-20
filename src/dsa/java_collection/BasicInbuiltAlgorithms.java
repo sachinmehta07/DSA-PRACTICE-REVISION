@@ -8,7 +8,6 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class BasicInbuiltAlgorithms {
-
     public static void main(String[] args) {
         iota();
     }
@@ -150,12 +149,10 @@ public class BasicInbuiltAlgorithms {
 
         System.out.println("Using Reduce : " + totalSum);
     }
-
     //See you can do anything to with those value to get single value by traveling entire array.
     public static int sumTotal(int subTotal, int currE) {
         return subTotal + currE;
     }
-
     public static void multiplicationOfTwoDArray() {
 
         ArrayList<Integer> arrayListOne = new ArrayList<>();
@@ -180,7 +177,6 @@ public class BasicInbuiltAlgorithms {
 
         System.out.println(getInnerMulTwoArrays(arrayListOne, arrayListTwo));
     }
-
     //in c++ it's called inner product
     public static long getInnerMulTwoArrays(ArrayList<Integer> one, ArrayList<Integer> two) {
         if (one.size() != two.size()) {
@@ -277,8 +273,5 @@ public class BasicInbuiltAlgorithms {
 
         System.out.println(arrayList);
     }
-
-
-
 }
 

@@ -57,7 +57,6 @@ public class BasicPatterns {
         }
     }
 
-
     public static void squarePatter(int rowNumber, int colNumber) {
         for (int i = 0; i < rowNumber; i++) {
             for (int j = 0; j < colNumber; j++) {
@@ -66,7 +65,6 @@ public class BasicPatterns {
             System.out.println("");
         }
     }
-
     public static void halfPyramidPatter(int row, int col) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < i + 1; j++) {
@@ -76,7 +74,6 @@ public class BasicPatterns {
         }
 
     }
-
     //Your Approach // :) Taken 1 hr while learning Still lot to learn.
     public static void inversePyramidPatter(int row) {
         for (int i = 0; i < row; i++) {
@@ -86,7 +83,6 @@ public class BasicPatterns {
             System.out.println("");
         }
     }
-
     //Love Bhaiya Approach
     public static void inversePyramidPatterOp(int row) {
         for (int i = 0; i < row; i++) {
@@ -110,7 +106,6 @@ public class BasicPatterns {
             System.out.println("");
         }
     }
-
     public static void invertedHalfPyramid(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - i; j++) {
@@ -119,7 +114,6 @@ public class BasicPatterns {
             System.out.println("");
         }
     }
-
     public static void fullPyramidHalfPyramid(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - i - 1; j++) {

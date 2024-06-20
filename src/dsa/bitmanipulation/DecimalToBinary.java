@@ -3,14 +3,11 @@ package dsa.bitmanipulation;
 public class DecimalToBinary {
 
     public static void main(String[] args) {
+
         //convert decimal to binary from given n number
-
-
         //    System.out.println(allDecimalToBinary(10));
         //    System.out.println(negative(getBinary("1101")));
-
        // System.out.println( getFactorial(5));
-
 
     }
 
@@ -48,18 +45,26 @@ public class DecimalToBinary {
     }
 
     private static int allDecimalToBinary(int decimal) {
+
         StringBuilder binary = new StringBuilder();
+
         int ans = 0;
+
         int base = 1;
+
         while (decimal != 0) {
             int lastBit = decimal & 1;
+
 //            binary.insert(0, lastBit);
+
             ans = (lastBit * base) + ans;
             decimal = decimal >> 1;
             base = base * 10;
+
             if (decimal == -1) {
                 break;
             }
+
         }
         return ans;
     }
@@ -71,13 +76,14 @@ public class DecimalToBinary {
         }
         return stringBuilder.toString();
     }
-
     public static StringBuilder negative(String binary) {
         int carry = 1;
         // int rslt = 0;
         StringBuilder stringBuilder = new StringBuilder();
+
         for (int i = binary.length() - 1; i >= 0; i--) {
             int bit = binary.charAt(i) == '0' ? 0 : 1;
+
             int ans = bit + carry;
 
             if (ans == 2) {
@@ -91,7 +97,6 @@ public class DecimalToBinary {
         }
         return stringBuilder;
     }
-
     public static void getEvenNumber(int n) {
         for (int i = 0; i <= n; i++) {
 //            int ans = i >> 1;
@@ -100,7 +105,6 @@ public class DecimalToBinary {
             }
         }
     }
-
     public static long getFactorial(int n) {
         long factorialNumber = 1;
         for (int i = 1; i <= n; i++) {
@@ -108,6 +112,4 @@ public class DecimalToBinary {
         }
         return factorialNumber;
     }
-    
-    
 }

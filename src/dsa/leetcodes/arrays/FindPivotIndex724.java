@@ -1,4 +1,4 @@
-package dsa.leetcodes;
+package dsa.leetcodes.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class FindPivotIndex724 {
 
     public static void main(String[] args) {
+
         ArrayList<Integer> a = new ArrayList<>();
 
         a.add(10);
@@ -60,7 +61,7 @@ public class FindPivotIndex724 {
 
         for (int i = 0; i < arrayList.size(); i++) {
             //get the right sum
-            rightSum = totalSum - arrayList.get(i) - leftSum;
+            rightSum = totalSum - (arrayList.get(i) - leftSum);
 
             if (rightSum == leftSum) {
                 return i;

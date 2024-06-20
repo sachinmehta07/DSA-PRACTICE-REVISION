@@ -1,8 +1,8 @@
-package dsa.bitmanipulation;
+package dsa.leetcodes.arrays;
 
 public class ReduceNumberToOne {
     public static void main(String[] args) {
-        System.out.println(getReducedNumber("1001"));
+        System.out.println(getReducedNumber("1101"));
     }
 
     //Binary number are in so e have to get each digit from string from LSB TO MSB
@@ -23,9 +23,11 @@ public class ReduceNumberToOne {
                 steps = steps + 1;
             }
         }
+
         if (carry == 1) {
             steps = steps + 1;
         }
+
         return steps;
     }
 }

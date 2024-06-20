@@ -12,13 +12,15 @@ public class rotateArray {
         k = k % size;
 
         if (k == 0) {
-            return;
+            return ;
         }
         //step 1 lets copy K-th last element of array into temp
         int[] temp = new int[size];
+
         int index = 0;
         //here size-k will help us to know where to start copy from original array
-        // as our logic say that copy K-th last element , So we have to know where to start to pick last kth element
+        // as our logic say that copy K-th last element ,
+        // So we have to know where to start to pick last kth element
 
         for (int i = size - k; i < size; i++) {
             temp[index] = arr[i];
