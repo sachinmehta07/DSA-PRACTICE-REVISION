@@ -31,9 +31,7 @@ public class MaximumAverageSubarray643 {
         int start = 0;
 
         while (j <= nums.length) {
-
             int sum = 0;
-
             for (int i = start; i < j; i++) {
                 sum = sum + nums[i];
             }
@@ -42,12 +40,9 @@ public class MaximumAverageSubarray643 {
             System.out.print(" TO : " + j);
             System.out.println(" SUB ARRAY SUM : " + sum);
 
-
             start++;
-
             j++;
             maxSum = Integer.max(sum, (int) maxSum);
-
         }
         return maxSum / k;
 
@@ -102,8 +97,11 @@ public class MaximumAverageSubarray643 {
 
 
     public static int[] sortArrays(int[] arr) {
+
         int s = 0;
+
         int mid = 0;
+
         int end = arr.length - 1;
 
         //  [0,0,2,1,1,2]

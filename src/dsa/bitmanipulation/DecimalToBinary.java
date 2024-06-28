@@ -57,7 +57,7 @@ public class DecimalToBinary {
 
 //            binary.insert(0, lastBit);
 
-            ans = (lastBit * base) + ans;
+            ans =  ans + (lastBit * base) ;
             decimal = decimal >> 1;
             base = base * 10;
 

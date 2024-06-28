@@ -51,6 +51,7 @@ public class firstRepeated {
 
         // HashMap to store the first occurrence of each element
         HashMap<Integer, Integer> hashMap = new HashMap<>();
+
         // Variable to keep track of the minimum index of the first repeating element
         int minIndex = -1;
 
@@ -60,7 +61,7 @@ public class firstRepeated {
 
                 // If the element is already in the hashMap, it means it's repeating
                 // We update minIndex to the first occurrence of this element if it is smaller
-                if (minIndex == -1 || hashMap.get(arr[i]) <  minIndex) {
+                if (minIndex == -1 || hashMap.get(arr[i]) < minIndex) {
                     minIndex = hashMap.get(arr[i]);
                 }
 
@@ -76,4 +77,6 @@ public class firstRepeated {
         return (minIndex == -1) ? -1 : minIndex + 1;
 
     }
+
+
 }

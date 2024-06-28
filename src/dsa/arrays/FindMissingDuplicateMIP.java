@@ -61,7 +61,7 @@ public class FindMissingDuplicateMIP {
     //brute force
     public static void getDuplicate(int[] arr) {
         int duplicate = 0;
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0  ; i < arr.length; i++) {
             //value as index
             int index = Math.abs(arr[i]) - 1;
             //check already visited or not
@@ -106,20 +106,15 @@ public class FindMissingDuplicateMIP {
         for (int i = 1; i <= n; i++) {
             xorSum ^= i;
         }
-
         // XOR all elements in the array
         for (int num : arr) {
             xorSum ^= num;
         }
-
         // The result will be the missing number
         return xorSum;
     }
-
     //optimal approach
-
     public static void getMissingDuplicateSwap(int[] arr) {
-
         int i = 0;
         int duplicate = 0;
 
@@ -145,8 +140,6 @@ public class FindMissingDuplicateMIP {
             //i need to find out both and T/C - O(n)  , S/C - O(1);
 
             //algo
-
-
             if (arr[i] != arr[arr[i] - 1]) {
 
                 int temp = arr[arr[i] - 1];
@@ -156,8 +149,6 @@ public class FindMissingDuplicateMIP {
             } else {
                 i++;
             }
-
-
         }
 
         for (int j = 0; j < arr.length; j++) {
@@ -166,9 +157,7 @@ public class FindMissingDuplicateMIP {
                 missing = j + 1 <= arr.length ? j + 1  : -1;
             }
         }
-
         System.out.println("missing :" + missing);
         System.out.println("duplicate : " + duplicate);
-
     }
 }
