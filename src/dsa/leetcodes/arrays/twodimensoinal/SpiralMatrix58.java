@@ -1,4 +1,4 @@
-package dsa.leetcodes.arrays;
+package dsa.leetcodes.arrays.twodimensoinal;
 
 import java.util.ArrayList;
 import java.util.List;

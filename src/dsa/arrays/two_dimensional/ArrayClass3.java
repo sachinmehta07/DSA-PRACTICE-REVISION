@@ -158,17 +158,19 @@ public class ArrayClass3 {
     }
 
     public static int[][] transposeMatrix(int[][] arr) {
+
         for (int row = 0; row < arr.length; row++) {
             for (int col = row; col < arr[0].length; col++) {
                 if (row == col) {
 
-                } else {
+                } else { 
                     int temp = arr[row][col];
                     arr[row][col] = arr[col][row];
                     arr[col][row] = temp;
                 }
             }
         }
+
         return arr;
     }
 }

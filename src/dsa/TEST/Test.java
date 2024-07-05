@@ -23,9 +23,9 @@ public class Test {
 //      System.out.println();
 
         int[] arr1 = {1, 3};
-        int[] arr2 = {0, 1, 1, 2, 2, 3, 3, 5, 5, 3, 3};
+        int[] arr2 = {1, 2, 3, 7, 5};
 
-        System.out.print(getTwoComplementBinary("010110"));
+        System.out.print(subarraySum(arr2, arr2.length, 12));
 
 //        System.out.print(flipAndAddOne("010110"));
 
@@ -205,7 +205,6 @@ public class Test {
             System.out.println("");
         }
     }
-
 
 
     public ArrayList<Integer> getAllCommon(int[] a, int[] b, int[] c) {
@@ -606,7 +605,7 @@ public class Test {
         }
         StringBuilder result = new StringBuilder();
 
-      //  add complement
+        //  add complement
         int carry = 1;
 
         for (int i = flipBit.length() - 1; i >= 0; i--) {
@@ -664,6 +663,29 @@ public class Test {
 
         // Convert StringBuilder to String and return
         return result.toString();
+    }
+
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) {
+        // Your code here
+        ArrayList<Integer> resultArr = new ArrayList<>();
+
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+
+                if (arr[i] + arr[j] == s) {
+
+                    resultArr.add(i + 1);
+                    resultArr.add(j + 1);
+
+                    return resultArr;
+
+                }
+            }
+        }
+
+        resultArr.add(-1);
+        return resultArr;
     }
 
 }

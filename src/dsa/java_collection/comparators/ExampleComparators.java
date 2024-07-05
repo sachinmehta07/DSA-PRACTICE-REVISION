@@ -28,7 +28,7 @@ public class ExampleComparators {
         studentArrayList.sort(new Comparator<Student>() {
             @Override
             public int compare(Student s1, Student s2) {
-                return s2.getMarks() - s1.getMarks(); // Descending order of marks
+                return s1.getMarks() - s2.getMarks(); // Ascending order of marks
             }
         });
 
@@ -36,8 +36,10 @@ public class ExampleComparators {
         studentArrayList.sort(new Comparator<Student>() {
             @Override
             public int compare(Student s1, Student s2) {
-                //return s1.getName().compareTo(s2.getName()); // Ascending order of marks
-                return s2.getName().compareTo(s1.getName()); // Descending order of marks
+
+                return s1.getName().compareTo(s2.getName()); // Ascending order of marks
+
+//                return s2.getName().compareTo(s1.getName()); // Descending order of marks
             }
         });
 
