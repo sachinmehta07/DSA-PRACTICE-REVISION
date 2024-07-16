@@ -12,20 +12,12 @@ public class MaximumSubArraySum53 {
         int max = arr[0];
         int sum = 0;
 
-        int start = -1;
-
-        int ansStart = -1;
-        int ansEnd = -1;
-
         for (int i = 0; i < arr.length; i++) {
-
 
             for (int j = i; j < arr.length; j++) {
                 sum += arr[j];
-
                 if (sum > max) {
                     max = sum;
-
                 }
                 //max = Integer.max(max, sum);
             }
@@ -35,10 +27,10 @@ public class MaximumSubArraySum53 {
 
     }
 
-    public static int getOptimalMaxSumSubArray(int[] arr) {
+    public static long getOptimalMaxSumSubArray(int[] arr) {
 
-        int max = arr[0];
-        int sum = 0;
+        long max = arr[0];
+        long sum = 0;
 
         //in case of interviwer ask follow up quetion like print subarray with max sum
         int start = -1;
@@ -56,7 +48,7 @@ public class MaximumSubArraySum53 {
 
             // and we can say that when ever sum == 0 it said that subarray starting pos.
 
-                sum += arr[i];
+                sum += (long)arr[i];
 
                 if (sum > max) {
                     max = sum;

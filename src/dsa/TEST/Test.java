@@ -5,32 +5,20 @@ import java.util.*;
 public class Test {
     public static void main(String[] args) {
 
-        //   System.out.println(reverseInteger(-123));
-//        setKthBit(6, 3);
-        //   System.out.println(countSetBit(8));
-//        genTheNumFromDigit(3);
+        ArrayList<Integer> arr = new ArrayList<>();
 
-//        setKthBit(12, 2);
-
-        int[][] a = {{1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9},
-                {10, 11, 12},
-                {13, 14, 15}
-        };
+        arr.add(10);
+        arr.add(20);
+        arr.add(30);
+        arr.add(40);
 
 
-//      System.out.println();
+        int[] a = {1,3,4,2,2};
 
-        int[] arr1 = {1, 3};
-        int[] arr2 = {1, 2, 3, 7, 5};
+        System.out.println(findDuplicate(a));
 
-        System.out.print(subarraySum(arr2, arr2.length, 12));
 
-//        System.out.print(flipAndAddOne("010110"));
-
-        // System.out.println(Arrays.toString(searchRange(arr1, 8)));
-//        System.out.println(search(arr1, 1));
+        // getPrints();
     }
 
     ArrayList<Integer> commonElements(int A[], int B[], int C[], int n1, int n2, int n3) {
@@ -175,9 +163,6 @@ public class Test {
         return nums[nums.length - 1];
     }
 
-    public void getTheLargeFactorial() {
-    }
-
     public static void hollowPattern(int n) {
         //outer loop
         for (int i = 0; i < n; i++) {
@@ -205,7 +190,6 @@ public class Test {
             System.out.println("");
         }
     }
-
 
     public ArrayList<Integer> getAllCommon(int[] a, int[] b, int[] c) {
 
@@ -324,7 +308,6 @@ public class Test {
             dir = (dir + 1) % 4;
         }
     }
-
 
     public static String getSum(int[] arr1, int[] arr2) {
 
@@ -482,7 +465,6 @@ public class Test {
         }
 
     }
-
 
     public static int getOddOccurrence(int[] arr) {
         int s = 0;
@@ -686,6 +668,225 @@ public class Test {
 
         resultArr.add(-1);
         return resultArr;
+    }
+
+    public void getMaximUm(int[] arr) {
+        int sum = 0;
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+
+
+        }
+    }
+
+    public static ArrayList<String> addOperators(String S, int target) {
+        // code here
+
+        //setp 1
+        //take string int into array
+        ArrayList<Integer> nums = new ArrayList<>();
+        ArrayList<String> arrResult = new ArrayList<>();
+
+
+        for (int i = 0; i < S.length(); i++) {
+            int num = S.charAt(i) - '0';
+            nums.add(num);
+        }
+
+
+        int k = target;
+
+        while (k != 0) {
+            int bit = k % 10;
+            for (int i = nums.size() - 1; i >= 0; i--) {
+                if (nums.get(i) == bit) {
+                    arrResult.add("" + nums.get(i));
+                }
+            }
+            k = k / 10;
+        }
+
+
+        //step 2
+        //do all  possible operation with each value in array
+        if (arrResult.size() <= 0) {
+
+            for (int i = 0; i < nums.size(); i++) {
+
+                for (int j = i + 1; j < nums.size(); j++) {
+
+                    if (nums.get(i) + nums.get(j) == target) {
+                        arrResult.add("" + nums.get(i) + "+" + nums.get(j) + "");
+                    }
+
+                    if (nums.get(i) - nums.get(j) == target) {
+                        arrResult.add("" + nums.get(i) + "-" + nums.get(j) + "");
+                    }
+
+                    if (nums.get(i) * nums.get(j) == target) {
+                        arrResult.add("" + nums.get(i) + "*" + nums.get(j) + "");
+                    }
+
+                }
+            }
+        }
+
+        return arrResult;
+    }
+
+    public static void getPrints() {
+        int n = 5;
+
+        //upper half
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print("* ");
+            }
+            for (int k = 1; k < 2 * i + 1; k++) {
+                System.out.print("  ");
+            }
+            for (int l = 0; l < n - i; l++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        //lower half
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                System.out.print("* ");
+            }
+            for (int k = 1; k < (2 * n) - (2 * i) - 1; k++) {
+                System.out.print("  ");
+            }
+            for (int l = 0; l < i + 1; l++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+
+    }
+
+
+    public static int getMinimumBookAllocation(ArrayList<Integer> arrayList, int numStudent) {
+
+        //step 1
+
+        //as we know my ans range always going to exist bw max number page to sum of all array
+
+        int s = Collections.max(arrayList); // max value from the array  or we can also start from arr
+
+        int e = arrayList.stream().mapToInt(i -> i).sum(); // entire sum;
+        int ans = -1;
+        while (s <= e) {
+            int mid = s + (e - s) / 2; // safe from overflow
+
+            if (isPossible(arrayList, numStudent, mid)) {
+                s = mid + 1;
+                ans = mid;
+            } else {
+                e = mid - 1;
+            }
+        }
+
+        return ans;
+    }
+
+    private static boolean isPossible(ArrayList<Integer> arrayList, int numStudent, int mid) {
+        int student = 1; // currunt student allocation books
+        int pageSum = 0; //help to maintain the distribution of the book
+
+        for (int i = 0; i < arrayList.size(); i++) {
+
+            if (pageSum + arrayList.get(i) <= mid) { //satisfy the possible range allocation only
+                pageSum += arrayList.get(i);  // allocation the books to currunt student
+            } else { //if range met for currunt student simply move for next
+                student++;
+                if (student > numStudent || arrayList.get(i) > mid) {
+                    //here we make sure not to exceed the limit std or book pages curr range
+                    return false;
+                }
+                pageSum = arrayList.get(i);
+            }
+        }
+        return true;
+    }
+
+    public static int getMaxDiffBwCow(int[] stalls, int allCow) {
+
+        int start = 1, end, ans = -1;
+
+        Arrays.sort(stalls);
+
+        end = stalls[stalls.length - 1] - stalls[0];
+
+        while (start <= end) {
+
+            int mid = start + (end - start) / 2;
+
+            if (isMaxDiff(stalls, mid, allCow)) {
+                //all cow are placed so move right by maximize the diff
+                start = mid + 1;
+                ans = mid;
+            } else {
+                //all cow not placed go left minimize the diff
+                end = mid - 1;
+            }
+        }
+        return ans;
+    }
+
+    public static boolean isMaxDiff(int[] stalls, int diff, int numCows) {
+
+        int currCow = 1;
+        int currCowPlaced = stalls[0];
+
+        //i will next cow place for give diff by traversing 1 -> n
+        for (int i = 1; i < stalls.length; i++) {
+            if (stalls[i] >= currCowPlaced + diff) {
+                currCow++;
+                currCowPlaced = stalls[i];
+            }
+        }
+
+        return currCow >= numCows;
+    }
+    public static int findDuplicate(int[] arr) {
+        //  Arrays.sort(arr);
+        // for (int i = 0; i < arr.length; i++) {
+
+        //     // int index = Math.abs(arr[i]);
+        //     // if (arr[index] < 0) {
+        //     // return index;
+        //     // }
+        //     // arr[index] = -arr[index];
+
+        //     // brute force
+        //     // for(int j = i+1;j<arr.length;j++){
+        //     // if(arr[i] == arr[j]){
+        //     // return arr[i];
+        //     // }
+        //     // }
+
+        // }
+        // return -1;
+        int i = 0;
+        while(i < arr.length){
+            if(arr[i] != arr[arr[i] - 1]){
+                int temp =  arr[i];
+                arr[i] =  arr[arr[i] - 1];
+                arr[arr[i] - 1] = temp;
+            }
+            i++;
+        }
+
+        for(int j = 0;j<arr.length;j++){
+            if(arr[j] != j+1){
+                return arr[j];
+            }
+        }
+        return -1;
     }
 
 }

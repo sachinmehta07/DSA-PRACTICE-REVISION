@@ -13,7 +13,7 @@ public class TwoSum {
 
     //optimise way  -- using hashmap
     public int[] getSumIndex(int[] arr, int target) {
-        Collections.rotate(Collections.singletonList(arr), 2);
+        //Collections.rotate(Collections.singletonList(arr), 2);
         HashMap<Integer, Integer> pairValues = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             int remaining = target - arr[i];
@@ -93,7 +93,6 @@ public class TwoSum {
             } else {
                 low++;
             }
-
         }
         return new int[]{};
     }
@@ -147,8 +146,7 @@ public class TwoSum {
         for (int i = 0; i < temp.length; i++) {
             arr[i] = temp[i];
         }
+        System.out.println();
         return arr;
     }
-
-
 }

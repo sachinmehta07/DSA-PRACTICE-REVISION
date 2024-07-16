@@ -6,7 +6,8 @@ import java.util.Map;
 public class firstRepeated {
 
     public static void main(String[] args) {
-
+        int[] a = {3, 5, 4, 4, 2, 1};
+        get(a);
     }
 
     // Function to return the position of the first repeating element.
@@ -78,5 +79,20 @@ public class firstRepeated {
 
     }
 
+    public static void get(int[] arr) {
 
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int minIndex = -1;
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (map.containsKey(arr[i])) {
+                if (minIndex == -1 || minIndex > map.get(arr[i])) {
+                    minIndex = map.get(arr[i]);
+                }
+            } else {
+                map.put(arr[i], i);
+            }
+        }
+        System.out.println(arr[minIndex]);
+    }
 }

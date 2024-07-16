@@ -1,4 +1,4 @@
-package dsa.leetcodes.binarysearch;
+package dsa.searching.binarysearch;
 
 import java.util.ArrayList;
 import java.util.Arrays;

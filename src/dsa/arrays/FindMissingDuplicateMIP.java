@@ -115,6 +115,7 @@ public class FindMissingDuplicateMIP {
     }
     //optimal approach
     public static void getMissingDuplicateSwap(int[] arr) {
+
         int i = 0;
         int duplicate = 0;
 

@@ -11,13 +11,13 @@ public class MaximumAverageSubarray643 {
 //        int[] nums = {5, 2, 7, 9, -10, -30};
 
 
-        int[] nums = {2,0,1};
+        int[] nums = {30,-40,60,70,-80};
 
         int k = 3;
-
+        System.out.println(findSubArrayMaxAvg(nums,2));
        // System.out.println("max sub array : " + findSubArrayMaxAvg(nums, k));
 
-        System.out.println("max sub array : " + Arrays.toString(sortArrays(nums)));
+      //  System.out.println("max sub array : " + Arrays.toString(sortArrays(nums)));
 
     }
 
@@ -59,13 +59,12 @@ public class MaximumAverageSubarray643 {
 
         double ans;
 
-
         int sum = 0;
         // Compute the sum of the first k elements
         for (int i = 0; i < k; i++) {
             sum += arr[i];
         }
-
+        System.out.println(sum);
         // Calculate the average of the first window
         avg = (double) sum / k;
 
@@ -80,8 +79,17 @@ public class MaximumAverageSubarray643 {
             // Subtract the element that is left behind by the window
             int minusPart = arr[i - k];
 
+
+            System.out.println("K" + k);
+
+            System.out.println(minusPart);
+
+            System.out.println(nextPart);
+
             // Update the sum to include the new element and exclude the old element
             sum = sum + nextPart - minusPart;
+
+            System.out.println(sum);
 
             // Calculate the new average
             avg = (double) sum / k;

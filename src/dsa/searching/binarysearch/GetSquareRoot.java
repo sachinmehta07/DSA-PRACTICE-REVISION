@@ -6,11 +6,16 @@ public class GetSquareRoot {
         System.out.println(getSquareRoot(100));
     }
 
-    //using bs  //search space method based on ans
+    //using bs
+    //
+    // search space method based on ans
     public static int getSquareRoot(int n) {
+
         int s = 0;
         int e = n;
+
         int mid = s + (e - s) / 2;
+
         while (s <= e) {
             long prod = (long) mid * mid;
             if (prod == n) {
@@ -23,6 +28,7 @@ public class GetSquareRoot {
             }
             mid = s + (e - s) / 2;
         }
+
         return -1;
     }
 }

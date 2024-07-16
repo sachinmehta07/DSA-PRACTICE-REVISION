@@ -132,7 +132,7 @@ public class IntersectionOfTwoArray {
             // bcz os array is sorted in ascending order
         }
 
-        return Arrays.copyOfRange(ans, 0, index);
+            return Arrays.copyOfRange(ans, 0, index);
     }
 
 
