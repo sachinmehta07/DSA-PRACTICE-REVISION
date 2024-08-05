@@ -60,5 +60,4 @@ public class PalindromeIdentifyString {
         }
         return true;
     }
-
 }

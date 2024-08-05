@@ -13,10 +13,16 @@ public class Test {
         arr.add(40);
 
 
-        int[] a = {1,3,4,2,2};
+        int[] a = {1, 3, 4, 2, 2};
 
-        System.out.println(findDuplicate(a));
+        //System.out.println(findDuplicate(a));
+        int[][] arrs = {
+                {10, 40, 70},
+                {20, 50, 80},
+                {30, 60, 90}
+        };
 
+        getMatrixRow(arrs);
 
         // getPrints();
     }
@@ -852,6 +858,7 @@ public class Test {
 
         return currCow >= numCows;
     }
+
     public static int findDuplicate(int[] arr) {
         //  Arrays.sort(arr);
         // for (int i = 0; i < arr.length; i++) {
@@ -872,21 +879,59 @@ public class Test {
         // }
         // return -1;
         int i = 0;
-        while(i < arr.length){
-            if(arr[i] != arr[arr[i] - 1]){
-                int temp =  arr[i];
-                arr[i] =  arr[arr[i] - 1];
+        while (i < arr.length) {
+            if (arr[i] != arr[arr[i] - 1]) {
+                int temp = arr[i];
+                arr[i] = arr[arr[i] - 1];
                 arr[arr[i] - 1] = temp;
             }
             i++;
         }
 
-        for(int j = 0;j<arr.length;j++){
-            if(arr[j] != j+1){
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] != j + 1) {
                 return arr[j];
             }
         }
         return -1;
+    }
+
+    public static void getMatrix(int[][] arr) {
+        int rowSize = arr.length;
+        int colSize = arr[0].length;
+
+        for (int col = 0; col < colSize; col++) {
+            if ((col & 1) == 0) {
+                for (int row = 0; row < rowSize; row++) {
+                    System.out.print(arr[row][col]);
+                }
+            } else {
+                for (int row = rowSize - 1; row >= 0; row--) {
+                    System.out.print(arr[row][col]);
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void getMatrixRow(int[][] arr) {
+        int rowSize = arr.length;
+        int colSize = arr[0].length;
+
+        for (int row = 0; row < rowSize; row++) {
+
+            if ((row & 1) == 0) {
+                for (int col = 0; col < colSize; col++) {
+                    System.out.print(arr[row][col]);
+                }
+            } else {
+                for (int col = colSize - 1; col >= 0; col--) {
+                    System.out.print(arr[row][col]);
+                }
+            }
+
+            System.out.println("");
+        }
     }
 
 }

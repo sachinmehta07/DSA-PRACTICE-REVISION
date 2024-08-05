@@ -11,6 +11,7 @@ public class BasicInbuiltAlgorithms {
     public static void main(String[] args) {
         iota();
     }
+
     public void commonAlgoList() {
 
         ArrayList<Integer> arrayList = new ArrayList<>(10);
@@ -123,12 +124,15 @@ public class BasicInbuiltAlgorithms {
 
 
     }
+
     public static boolean checkEven(int n) {
         return n % 2 == 0;
     }
+
     public static int doSquare(int n) {
         return n * 2;
     }
+
     public static void numericAlgorithms() {
         ArrayList<Integer> arrayList = new ArrayList<>();
 
@@ -149,10 +153,12 @@ public class BasicInbuiltAlgorithms {
 
         System.out.println("Using Reduce : " + totalSum);
     }
+
     //See you can do anything to with those value to get single value by traveling entire array.
     public static int sumTotal(int subTotal, int currE) {
         return subTotal + currE;
     }
+
     public static void multiplicationOfTwoDArray() {
 
         ArrayList<Integer> arrayListOne = new ArrayList<>();
@@ -177,6 +183,7 @@ public class BasicInbuiltAlgorithms {
 
         System.out.println(getInnerMulTwoArrays(arrayListOne, arrayListTwo));
     }
+
     //in c++ it's called inner product
     public static long getInnerMulTwoArrays(ArrayList<Integer> one, ArrayList<Integer> two) {
         if (one.size() != two.size()) {
@@ -189,6 +196,7 @@ public class BasicInbuiltAlgorithms {
         }
         return -1;
     }
+
     public static void partialSum() {
 
 
@@ -259,6 +267,7 @@ public class BasicInbuiltAlgorithms {
 
         }
     }
+
     public static void iota() {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -272,6 +281,54 @@ public class BasicInbuiltAlgorithms {
         IntStream.rangeClosed(0, 5).forEach(i -> arrayList.add(i));
 
         System.out.println(arrayList);
+    }
+
+    public int[] decompressRLElist(int[] nums) {
+
+        int count = 0;
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            if ((i & 1) == 0) {
+                count = nums[i];
+            } else {
+                for (int j = 0; j < count; j++) {
+                    arrayList.add(nums[j]);
+                }
+            }
+        }
+
+        int[] ansH = new int[arrayList.size()];
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            ansH[i] = arrayList.get(i);
+        }
+
+        return ansH;
+    }
+
+
+    public String intToRoman(int num) {
+
+
+        int[] val = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+        String[] symbol = {"I", "IV", "V", "IX", "X", "L", "XC", "C", "CD", "D", "CM", "M"};
+
+        int times;
+
+        for (int i = 0; i <= val.length; i++) {
+            if (num == 0) break;
+            if (num >= val[i]) {
+                times = num / val[i];
+                for (int j = 0; j <= times; j++) {
+                    System.out.println(symbol[i]);
+                }
+                num = num % val[i];
+            }
+        }
+        return null;
     }
 }
 

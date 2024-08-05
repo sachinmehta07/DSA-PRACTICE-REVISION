@@ -178,6 +178,7 @@ public class CharClass1 {
         System.out.println(s.substring(1));
 
         System.out.println(s.contains("o"));
+
         System.out.println(s.compareTo("sa"));
     }
 

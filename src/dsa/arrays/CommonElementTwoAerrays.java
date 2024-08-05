@@ -1,17 +1,18 @@
 package dsa.arrays;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CommonElementTwoAerrays {
     public static void main(String[] args) {
-        int[] A = {1, 5, 10, 20, 40, 80};
-        int[] B = {6, 7, 20, 80, 100};
-        int[] C = {3, 4, 15, 20, 70, 80, 120};
+//        int[] A = {1, 5, 10, 20, 40, 80};
+//        int[] B = {6, 7, 20, 80, 100};
+//        int[] C = {3, 4, 15, 20, 70, 80, 120};
 
-        threePointerApproach(A, B, C);
+        List<Integer> arr1 = List.of(1, 7, 10, 20, 40, 100);
+        List<Integer> arr2 = List.of(2, 7, 20, 80, 100);
+        List<Integer> arr3 = List.of(3, 30, 70, 120);
+
+        System.out.println(commonElements(arr1, arr2, arr3));
 
     }
 
@@ -71,7 +72,7 @@ public class CommonElementTwoAerrays {
         System.out.println(commonElements);
     }
 
-//    public static void threePointerApproach(int[] arrA, int[] arrB, int[] arrC) {
+    //    public static void threePointerApproach(int[] arrA, int[] arrB, int[] arrC) {
 //        int p1 = 0, p2 = 0, p3 = 0;
 //
 //        HashMap<Integer, Integer> commonValList = new HashMap<>();
@@ -145,6 +146,45 @@ public class CommonElementTwoAerrays {
         System.out.println(commonValList);
 
         System.out.println(commonValListArray);
+
+    }
+
+    public static List<Integer> commonElements(List<Integer> arr1, List<Integer> arr2,
+                                               List<Integer> arr3) {
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        ArrayList<Integer> resultArr = new ArrayList<>();
+
+        while (i < arr1.size() && j < arr2.size() && k < arr3.size()) {
+
+            if (Objects.equals(arr1.get(i), arr2.get(j)) && Objects.equals(arr3.get(k), arr1.get(i))) {
+
+                if (!resultArr.contains(arr2.get(j))) {
+                    resultArr.add(arr2.get(j));
+                }
+
+                i++;
+                j++;
+                k++;
+
+            } else if (arr2.get(j) > arr1.get(i)) {
+                i++;
+            } else if (arr2.get(j) > arr3.get(k)) {
+                k++;
+            } else {
+                j++;
+            }
+        }
+
+        if (resultArr.isEmpty()) {
+            resultArr.add(-1);
+        }
+
+
+        return resultArr;
 
     }
 
